@@ -11,7 +11,7 @@
 body {
 	background-color: #f5e6da;
 	font-family: pixel;
-	height: 100vh;
+	height: 90vh;
 	overflow: hidden;
 }
 
@@ -19,7 +19,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	height: 85%;
+	height: 90%;
 	position: relative;
 }
 
