@@ -1,0 +1,191 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: pixel;
+	src: url(PixelatedEleganceRegular.ttf);
+}
+
+body {
+	background-color: #f5e6da;
+	font-family: pixel;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	height: 95%;
+	position: relative;
+}
+
+.gift {
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#gift {
+	width: 400px;
+	height: auto;
+	animation: scaleUpDown 3s infinite;
+}
+
+.gift p {
+	font-size: 1.5em;
+	text-align: center;
+	margin: 20px 0;
+}
+
+@keyframes scaleUpDown {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.25);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+#gift:hover {
+	cursor: pointer;
+}
+
+#trigger:checked ~ .gift-label #gift {
+	animation: none;
+}
+
+#trigger:checked ~ .gift-label #top-gift {
+	transform: translate(10px, 12px);
+	transition: transform 0.5s ease-in-out;
+	animation: hideTop 0.5s ease forwards;
+	animation-delay: 2s;
+}
+
+@keyframes hideTop {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+#trigger:checked ~ .gift-label #bottom-gift {
+	animation: hideBottom 0.5s ease forwards;
+	animation-delay: 2.75s;
+}
+
+@keyframes hideBottom {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+#trigger:checked ~ .gift-label p {
+	animation: hideText 0.5s ease forwards;
+	animation-delay: 2.75s;
+}
+
+@keyframes hideText {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+#hand {
+	height: auto;
+	width: 400px;
+}
+
+.hand-div {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.5s ease;
+}
+
+#trigger:checked ~ .hand-div {
+	animation: showHand 0.5s ease forwards;
+	animation-delay: 3s;
+}
+
+@keyframes showHand {
+	to {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+#finger {
+	opacity: 0;
+	visibility: hidden;
+	animation: showFinger 1s ease-in-out forwards;
+	animation-delay: 5s;
+}
+
+@keyframes showFinger {
+	to {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+footer {
+	text-align: center;
+	padding: 10px;
+}
+
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #gift {
+        width: 250px;
+    }
+
+    .gift p {
+        font-size: 1.2em;
+    }
+
+    #hand {
+        width: 250px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    #gift {
+        width: 200px;
+    }
+
+    .gift p {
+        font-size: 1em;
+    }
+
+    #hand {
+        width: 200px;
+    }
+}
